@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./pieces/head.ejs') %>
+<style>
+  video {
+    width: 40%;
+    height: 300px;
+    padding: 3px;
+    margin: 2px;
+    border: 1px solid black;
+    
+  }
+  #libcontent {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #lib {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 50vh;
+    overflow-x: auto;
+  }
+  h3 {
+   width: 100%;
+   line-height: 20px;
+   padding: 5px;
+  }
+
+</style>
+
+    <body>
+        <div class="header">
+
+            <h1>SCOLAR ACA<b style="color:rgb(20, 240, 20);">DEMY.COM</b></h1>
+
+            <!-- the navigation section -->
+            <div class="learn">
+                
+                <a href="/login/stud=<%= student.id %>">HOME</a>
+                <a href="/login/library?id=<%= student.id %> " style="background-color: rgb(20, 20, 20); border-bottom: 2px solid blue; color:white; letter-spacing:2px;" >LIBRARY</a>
+           
+            <a href="/learn?id=<%= student.id %>">LEARN</a>
+
+            <!-- end of navigation -->
+        </div>
+
+        <!-- end of header section -->
+
+        <hr>
+
+        <!-- the inputs section -->
+
+        <input type="checkbox" id="check">
+
+
+        <!-- the end of inputs -->
+        <!--the dashboard section-->
+        <!--  -->
+        
+        <!--  -->
+        <div class="container">
+            <label for="check">
+                <span class="times" id="times">
+                  <%- include('./logo/cancel.ejs') %>  
+                      
+                </span>
+                <span class="bars" id="btn"> 
+                  <%- include('./logo/bars.ejs') %> 
+                  </span>
+                
+               </label>
+          
+                      <div class="head">Dashboard</div>
+                      <ol>
+                          
+                <li>
+        
+                    <button class="collapsible">  <%- include('./logo/profile.ejs') %>PROFILE</button>
+                <div class="content">
+                  <ul>
+                      <li> <%= info.name%></li>
+                      <li><%= info.age%></li>
+                      <li> <%= info.gender%></li>
+                  </ul>
+                </div>
+                  </li>
+                         
+                          <li><a href="/info/help">
+                              <%- include('./logo/comment.ejs') %>HELP DESK</a></li>
+                         
+                          <li><a href="/info/contact"><%- include('./logo/phone.ejs') %>CONTACT US</a></li>
+                          <li><a href="/info/about">
+                              <%- include('./logo/exclamation.ejs') %>ABOUT US</a></li>
+                          
+                      </ol>
+                  
+            <hr>
+            <center>
+                <p>&copy copyright 2021</p>
+            </center>
+        </div>
+
+        <!--end of dashboard section -->
+        <div class="section">
+
+
+            <center>
+              <form action="/login/search" method="POST">
+                <div id="home-search">
+
+                    <input type="text" placeholder="Search For Books Or Videos Here" id="library-search" name="question"><button>SEARCH</button>
+                    <input type="search" name="id" value="<%= student.id %>" style="visibility: hidden;">
+                </div>
+            </form>
+            </center>
+            <a href="/?:<%= student.email %> "></a>
+           
+            <br>
+            <hr>
+
+  
+  <% if(myLib){ %>
+    <center>
+                  <h4 id="results">showing results for....
+            <%= question %> .</h4>
+    </center>
+    <div id="libcontent">
+      
+    <div id="lib">
+      <h3>Books</h3>
+        <% for(book of myLib){ %>
+            <% if(book.type=="book"){ %> 
+            <div class="lib-divs">
+              <h3>
+                  <%= book.title %>
+              </h3>
+              by
+              <%= book.author %> <br>More about
+                  <a href="<%= book.link %> " download>
+                      <%= book.description %>
+                  </a>
+                  <hr style="width:50%; color:aqua;">
+          </div>
+            <% } %>
+              
+            <%}%>
+    </div>
+    <div id="lib">
+     <h3 >Videos</h3>
+      
+      
+<% for (video of myLib) { if(video.type=="video"){%>
+<div class="lib-vids">
+<h3>
+<%= video.title %>
+</h3>
+by
+<%= video.author %> <br>
+<video src="<%= video.link %> " controls ></video>
+
+<hr style="width:100%; color:aqua;">
+</div> 
+<%} } %>  
+    </div>
+    <% } %>
+</div>
+
+</div>
+
+        <!--the footer section-->
+
+       <br>
+       <br>
+        <footer>
+            <div class="footer">
+             <div class="contact-us">
+               <h3>CONTACT US:</h3>
+               <h5>
+                <h5>
+                    <a href="#"><%- include('./logo/phone.ejs') %> phone Call+2547777777</a></
+                     </h5>
+                     <h5>
+                        <a href="#"><%- include('./logo/mail.ejs') %> Email scholaracademy@gmail.com</a></
+                         </h5>
+             </div>
+             <div class="about-us">
+                <h3>ABOUT US:</h3>
+                
+                  <button class="collapsible">Our Service</button>
+                  <div class="content">
+                    <p> Scholar was founded by five comrades with one goal in mind: to help people get online without technical skills and be able to acquire knowledge with the provided online resources . Our team is passionate about our purpose, and obsessed with innovation. From the engineers who write the code, to the support team that's here to help you use it, everybody knows what we're here to do - and we have a lot of fun doing it.</p>
+                  </div>
+                  
+                  <button class="collapsible">Our Products</button>
+                  <div class="content">
+                    <p>Scholar makes learning simple. Whether you need to get online,and start learning any time, or you want a reference we got you, our online learning platform can help you reach your goals.  Our features are powerful yet easy to use, so they're a great choice for personal users and non-profits too.
+                    </p>
+                  </div>
+                    
+             
+             </div>
+             <div class="follow-us">
+               <h4>Follow Us:</h4>
+               
+               <h5>
+                <a href="#"><%- include('./logo/facebook.ejs') %> Facebook</a></h5> 
+                 <h5>
+                    <a href="#"><%- include('./logo/twitter.ejs') %> Twitter</a></h5> 
+               <h5>
+                <a href="#"><%- include('./logo/telegram.ejs') %> Telegram</a></h5> 
+               <h5>
+                <a href="#"><%- include('./logo/youtube.ejs') %> Youtube</a></h5> 
+                
+             </div>
+            </div>
+          
+          <hr>
+          <center>
+           <p id="copy">&copy Copyright 2021. ALL RIGHTS RESERVED</p>
+          </center>
+          </footer> 
+          <script>
+            var coll = document.getElementsByClassName("collapsible");
+          var i;
+          
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.maxHeight){
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              } 
+            });
+          }
+          </script>
+        </body>
+
+</html>

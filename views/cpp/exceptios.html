@@ -1,0 +1,46 @@
+<div>
+    <link rel="stylesheet" href="/cpp.css">
+    <h2>C++ Exception Handling:</h2>
+    <p>
+        Exception handling in C++ provides you with a way of handling unexpected circumstances like runtime errors.<br> So whenever an unexpected circumstance occurs, <br>the program control is transferred to special functions known as handlers.
+    </p>
+    <p>
+        To catch the exceptions, you place some section of code under exception inspection. <br>The section of code is placed within the try-catch block.
+    </p>
+    <div id="code">
+        <h3>Syntax:</h3>
+        <p>The try/catch takes this syntax:</p>
+
+        try {<br>
+        <p> // the protected code<br></p>
+        } catch( Exception_Name exception1 ) {<br>
+        <p>// catch block<br></p>
+        } catch( Exception_Name exception2 ) {<br>
+        <p>// catch block<br></p>
+        } catch( Exception_Name exceptionN ) {<br>
+        <p> // catch block<br></p>
+        }
+
+    </div>
+    <div id="code">
+        <h4>Example</h4>
+        <p>
+            #include
+            <iostream><br> #include
+                <vector><br> using namespace std;
+        </p><br> int main() {<br> vector
+        <int> vec;<br> vec.push_back(0); <br> vec.push_back(1); <br>
+            <p> // access the third element, which doesn't exist<br></p>
+            try<br> {
+            <br> vec.at(2); <br> }
+            <br> catch (exception& ex)<br> {
+            <br>
+            <p>
+                cout
+                << "Exception occurred!" << endl;<br>
+                    }<br> return 0;<br>
+            </p>
+            }
+
+    </div>
+</div>

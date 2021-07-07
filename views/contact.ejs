@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./pieces/head.ejs") %>
+
+        <body>
+            <div class="home1">
+                <h3>ScholarAcademy.com</h3>
+                <center>
+                    <a href="/info/index">HOME </a>
+                <a href="/info/about">ABOUT US </a>
+            <a href="/info/contact" style="background-color: rgb(20, 20, 20); border-bottom: 2px solid blue; color:white; letter-spacing:2px;" >CONTACT US</a>
+            <a href="/info/help">HELP DESK</a>
+        </center>
+            </div>
+            
+
+            <!--the contact content-->
+
+            <div id="contact">
+                <center>
+                    <h2>Contact Us</h2>
+                    <h5>
+                        <a href="#"><%- include('./logo/phone.ejs') %> phone Call+2547777777</a></
+                         </h5>
+                         <h5>
+                            <a href="#"><%- include('./logo/mail.ejs') %> Email scholaracademy@gmail.com</a></
+                             </h5>
+                    <div id="contact1">
+
+                        <!--the contact us form-->
+
+                        <form action="post">
+                            <label for="name">Name:</label> <br>
+                            <input type="text" placeholder="Your name"> <br>
+                            <label for="name">Number:</label> <br>
+                            <input type="number" placeholder="Your Number"> <br>
+                            <label for="name">Subject:</label> <br>
+                            <input type="text" placeholder="Your Subject"> <br>
+                            <label for="sms"> Write Your Message Here</label> <br>
+                            <textarea name="sms" id="" cols="30" rows="3" placeholder="Write your message"></textarea>
+                            <input type="submit" value="Send" id="submit">
+                        </form>
+                    </div>
+
+                    <!-- follow us form-->
+
+                    <div id="follow">
+                        <h4>Follow Us:</h4>
+                        <h5>
+                            <a href="#"><%- include('./logo/facebook.ejs') %> Facebook</a></h5> 
+                             <h5>
+                                <a href="#"><%- include('./logo/twitter.ejs') %> Twitter</a></h5> 
+                           <h5>
+                            <a href="#"><%- include('./logo/telegram.ejs') %> Telegram</a></h5> 
+                           <h5>
+                            <a href="#"><%- include('./logo/youtube.ejs') %> Youtube</a></h5>
+                    </div> <br>
+                </center>
+            </div>
+
+            <!--the footer section-->
+
+            
+        <footer>
+            <div class="footer">
+             <div class="contact-us">
+               <h3>CONTACT US:</h3>
+               <h5>
+                <h5>
+                    <a href="#"><%- include('./logo/phone.ejs') %> phone Call+2547777777</a></
+                     </h5>
+                     <h5>
+                        <a href="#"><%- include('./logo/mail.ejs') %> Email scholaracademy@gmail.com</a></
+                         </h5>
+             </div>
+             <div class="about-us">
+                <h3>ABOUT US:</h3>
+                
+                  <button class="collapsible">Our Service</button>
+                  <div class="content">
+                    <p> Scholar was founded by five comrades with one goal in mind: to help people get online without technical skills and be able to acquire knowledge with the provided online resources . Our team is passionate about our purpose, and obsessed with innovation. From the engineers who write the code, to the support team that's here to help you use it, everybody knows what we're here to do - and we have a lot of fun doing it.</p>
+                  </div>
+                  
+                  <button class="collapsible">Our Products</button>
+                  <div class="content">
+                    <p>Scholar makes learning simple. Whether you need to get online,and start learning any time, or you want a reference we got you, our online learning platform can help you reach your goals.  Our features are powerful yet easy to use, so they're a great choice for personal users and non-profits too.
+                    </p>
+                  </div>
+                    
+             
+             </div>
+             <div class="follow-us">
+               <h4>Follow Us:</h4>
+               
+               <h5>
+                <a href="#"><%- include('./logo/facebook.ejs') %> Facebook</a></h5> 
+                 <h5>
+                    <a href="#"><%- include('./logo/twitter.ejs') %> Twitter</a></h5> 
+               <h5>
+                <a href="#"><%- include('./logo/telegram.ejs') %> Telegram</a></h5> 
+               <h5>
+                <a href="#"><%- include('./logo/youtube.ejs') %> Youtube</a></h5> 
+                
+             </div>
+            </div>
+          
+          <hr>
+          <center>
+           <p id="copy">&copy Copyright 2021. ALL RIGHTS RESERVED</p>
+          </center>
+          </footer>
+          <script>
+            var coll = document.getElementsByClassName("collapsible");
+          var i;
+          
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.maxHeight){
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              } 
+            });
+          }
+          </script>
+        </body>
+
+</html>

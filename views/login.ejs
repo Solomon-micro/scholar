@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<%- include("./pieces/head.ejs") %> 
+<body>
+  <div class="header">
+
+    <h1>SCOLAR ACA<b style="color:rgb(20, 240, 20);">DEMY.COM</b></h1>
+
+    <!-- login -->
+
+    <div class="login">
+        <a href="/login" id="login">LOGIN</a>
+        <a href="/register" id="register">Register</a>
+    </div>
+
+
+    <!--end of login section -->
+
+    <!-- the navigation section -->
+    <div class="home1">
+      <a href="/info/index">HOME</a>
+        <a href="/info/about">ABOUT US </a>
+    <a href="/info/contact">CONTACT US</a>
+    <a href="/info/help">HELP DESK</a>
+    </div>
+    <!-- end of navigation -->
+</div>
+
+<!-- end of header section -->
+
+<hr>
+
+
+  <center>
+
+ <div class="form">
+      <form action="/login/stud" method="POST">
+        <h3>ENTER YOUR LOG IN DETAILS</h3>
+        <div id="profile">
+          <%- include('./logo/profile.ejs') %>
+        </div><br>
+       
+        <input type="email" placeholder=" Enter your Email" name="email" required> <br>
+        
+        <input type="password" placeholder="Enter your Password" name="password" required> <br>
+        <input type="submit" value="login" id="login">
+        <br>
+      </form>
+      <a href="/password/forgot">forgot password?</a> <br>
+        <a href="/register">create account?</a>
+    </div>
+  </center>
+</body>
+</html>

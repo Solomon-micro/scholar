@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./pieces/head.ejs') %>
+
+    <body>
+        <div id="adminhome">
+           
+            <h2>SCHOLAR Admin.</h2>
+            <br>
+            <hr>
+            <div id="addmember">
+                <button onclick="admin()" id="addbtn"> Add Member</button>
+            </div>
+            <div id="total ">
+                <h3>complains and comments</h3>
+                <% for(message of messages){ %>
+                  <div id="complain">
+                    <div class="lib-div1">
+                        a message from
+                        <h3>
+                            <%= message.name %>
+                        </h3>
+                        of email
+                        <%= message.email%><br> under the subject of
+                            <h4>
+                                <%=message.subject  %>
+                            </h4>
+                            says
+                            <%= message.message  %>
+                                <hr style="width:50%; color:aqua;">
+                    </div>
+                  </div>
+
+                    <%}%>
+                        <div>
+                            <h3>All Students</h3>
+                            <div id="lib-div">
+                                <% for(student of school){ %>
+                                    <div class="lib-divs">
+                                        <h3>
+                                            <%=student.email %>
+                                        </h3>
+                                        of Id
+                                        <%= student.id%>
+                                            <hr style="width:50%; color:aqua;">
+                                    </div>
+
+                                    <%}%>
+                            </div>
+                        </div>
+            </div>
+            <div id="downloads ">
+                <h3>All Learning Materials</h3>
+                <div id="lib-div">
+                    <% for(book of library){ %>
+                        <div class="lib-divs">
+                            <h3>
+                                <%= book.title %>
+                            </h3>
+                            by
+                            <%= book.author %> <br>More about
+                                <a href="<%= book.link %> " target="_blank">
+                                    <%= book.title %>
+                                </a>
+                                <hr style="width:50%; color:aqua;">
+                        </div>
+
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            let add = document.getElementById('addmember');
+            let addbtn = document.getElementById('addbtn');
+
+            function admin() {
+                add.innerHTML = `<form action="/adm/addmin " method="POST" >
+
+            <input name="name" placeholder="New Adminstrators name" style="width:100%;padding:10px;"><br>
+            <br>
+            <br>
+            <input type="email " name="email" placeholder="Email address "
+            style="width:100%;padding:10px;"><br>
+            <br>
+            <br>
+            <input type="text " name="id" placeholder="your id " required
+            style="width:100%;padding:10px;">
+            <br>
+            <br>
+            <input type="password" name="password" placeholder="password" 
+            style="width:100%;padding:10px;">
+            <br>
+            <br>
+            <button style="background-color:blue; color:white; padding:5px; width:30%">Add</button>
+            <form>`;
+            }
+        </script>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background-color: aliceblue;
+            }
+            
+            h2 {
+                color: rgb(52, 241, 52);
+                letter-spacing: 2px;
+                margin-left: 50px;
+                width: auto;
+            }
+            #addmember {
+                float: right;
+                padding: 10px;
+                margin: 10px;
+                margin-top: -15px;
+                background-color:white
+                ;
+            }
+            #addbtn {
+                padding: 10px;
+                margin: 5px;
+                background-color: red;
+                color: white;
+                letter-spacing: 2px;
+            }
+            #complain {
+                display: flex;
+                flex-wrap: wrap;
+               
+                padding: 10px;
+                margin: 10px;
+            }
+            .lib-div1 {
+                width: 30%;
+                background-color: rgb(176, 177, 176);
+                padding: 10px;
+                margin: 5px;
+            }
+            
+            #total {
+                background-color: rgb(151, 173, 223);
+                height: 30vh;
+                width: 27%;
+                margin: 10px;
+                padding: 5px;
+                border-radius: 20px;
+            }
+            #total h3 {
+                background-color: green;
+            }
+            
+            #downloads {
+                background-color: rgb(247, 118, 118);
+                height: 30vh;
+                width: 27%;
+                margin: 10px;
+                padding: 5px;
+                border-radius: 20px;
+            }
+            #downloads h3 {
+                background-color: green;
+            }
+        </style>
+    </body>
+
+</html>
